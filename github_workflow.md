@@ -27,7 +27,11 @@ git diff
 ### Optional Shortcuts
 ```bash
 git commit -am "message"  # Shortcut for 'add -u' + commit
-git push -u                # Set upstream for easier future pushes
+git push -u                # Set upstream for easier future pushes:#when you work in the same directory for a long lime u can write -u to set it upstream then u dont have to write origin main multiples time, u just write git push
+```
+### If not in main branch, another branch then:
+```bash
+Git push origin brachname
 ```
 
 ## 3. Keeping Up-to-date with Fork (Upstream)
@@ -56,6 +60,7 @@ git push origin main                        # Update your fork
 git log HEAD..upstream/main --oneline
 git push origin main                        # Push changes back to your fork
 ```
+-After that, the local and GitHub fork will both be up to date with the latest main branch
 
 ### Optional (Skip broken hooks)
 ```bash
@@ -74,28 +79,30 @@ git rm file.txt
 git commit -m "Removed file.txt"
 git push
 ```
+-After that, the file disappears from both local repo and GitHub.
 
+## Optional:
 ### Stop tracking a file but keep it locally
 ```bash
 git rm --cached file.txt
 ```
 
 ## 6. Rename or Move Files
-### Rename locally (preserve history)
+### Rename locally (preserve history):
 ```bash
 git mv frontend/www/docs/Home.md frontend/www/docs/Index.md
 git commit -m "Renamed Home.md to Index.md"
 git push
 ```
 
-### Rename a file already pushed
+### Rename a file already pushed to github:
 ```bash
 git mv oldname newname                      # Rename locally
 git commit -m "Rename oldname to newname"  # Commit change
 git push origin main                        # Push to fork
 ```
 
-## 7. Handle Conflicts When Renaming
+## 7. If someone else’s changes conflict with that file name, this handles conflicts When Renaming
 ```bash
 git fetch upstream
 git merge upstream/main
@@ -105,13 +112,10 @@ git push origin main
 ## 8. Ignore Files Using .gitignore
 - Tells Git which files/folders to ignore (e.g., temporary files, local configs, secrets)
 - Example entries:
-```
-# Ignore environment files
-.env
-# Ignore Python cache
-__pycache__/
-*.pyc
-# Ignore Node modules
-node_modules/
+```bash
+.env                   # Ignore environment files
+__pycache__/           # Ignore Python cache
+*.pyc 
+node_modules/          # Ignore Node modules
 ```
 
