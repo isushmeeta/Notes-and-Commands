@@ -3,9 +3,15 @@
 ## 1. General Commands
 ```bash
 git clone <repo-link>                        # Clone repository
+cd projectfoldername
 git status                                  # Check current status
 git branch                                  # List all branches
-git checkout main                           # Switch to main branch
+```
+## Always create a new Branch Before working
+
+```bash
+git checkout main                          # Switch to main branch
+git pull origin main                       # Get latest main branch
 git checkout -b <branch-name>              # Create and switch to a new branch
 ```
 
@@ -13,25 +19,26 @@ git checkout -b <branch-name>              # Create and switch to a new branch
 ```bash
 git add .                                   # Add all changes
 git add <file-name>                         # Add specific file
-git commit -m "commit message"            # Save changes with a message
+git commit -m "commit message"              # Save changes with a message
 git push origin main                        # Push to main branch (primary step)
-git push origin <branch-name>              # If on another branch
+git push origin <branch-name>               # If on another branch
 ```
-
 ### Optional: Check working state before committing
 ```bash
 git status
 git diff
+```
+### To Delete a branch 
+```bash
+git checkout main                            # Switch to main branch
+git branch -d branchname                     # Delete Branch Locally
+git push origin --delete branchname          # Delete branch from GitHub (remote)
 ```
 
 ### Optional Shortcuts
 ```bash
 git commit -am "message"  # Shortcut for 'add -u' + commit
 git push -u                # Set upstream for easier future pushes:#when you work in the same directory for a long lime u can write -u to set it upstream then u dont have to write origin main multiples time, u just write git push
-```
-### If not in main branch, another branch then:
-```bash
-Git push origin brachname
 ```
 
 ## 3. Keeping Up-to-date with Fork (Upstream)
